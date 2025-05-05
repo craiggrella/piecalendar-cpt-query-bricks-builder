@@ -1,6 +1,6 @@
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $current_datetime = current_time('Y-m-d\TH:i:s');
-$post_type = '{djop_event}';
+$post_type = '{your_custom_post_type}';
 
 
 return [
@@ -17,9 +17,9 @@ return [
     ],
      'tax_query' => [
         [
-            'taxonomy' => 'djop_event-type',
+            'taxonomy' => 'your_custom_tax',
             'field'    => 'slug',
-            'terms'    => ['calendar'],
+            'terms'    => ['your_custom_tax_slug'],
             'operator' => 'NOT IN',
         ],
     ],
