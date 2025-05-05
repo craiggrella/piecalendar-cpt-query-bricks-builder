@@ -14,6 +14,8 @@ You'll also need code or a plugin to create the custom post types. In this examp
 - Sign Code
 - Save
 
+Note: This code restricts event dates to the past and a custom event taxonomy. This can be changed by removing the meta query on start date or editing the values. You can also remove the tax query or edit values to suit your needs.
+
 
 ## Additional Resources
 - [WordPress Query Parameters](https://developer.wordpress.org/reference/classes/wp_query/#parameters)
