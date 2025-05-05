@@ -10,7 +10,7 @@ You'll also need code or a plugin to create the custom post types. In this examp
 
 ## Instructions
 - In the query area of the query loop in Bricks Builder, toggle the selection for Query Editor (PHP).
-- Add Code
+- [Add Code](https://github.com/craiggrella/piecalendar-cpt-query-bricks-builder/blob/main/query-editor-php)
 - Sign Code
 - Save
 
