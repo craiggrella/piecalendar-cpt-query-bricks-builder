@@ -1,0 +1,30 @@
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+$current_datetime = current_time('Y-m-d\TH:i:s');
+$post_type = '{djop_event}';
+
+
+return [
+	'post_type' 			=> [$post_type],
+	'posts_per_page' 	=> 10,
+	'paged'          => $paged,
+  'meta_query'     	=> [
+        [
+            'key'     => '_piecal_start_date',
+            'value'   => $current_datetime,
+            'compare' => '<',
+            'type'    => 'DATETIME',
+        ],
+    ],
+     'tax_query' => [
+        [
+            'taxonomy' => 'djop_event-type',
+            'field'    => 'slug',
+            'terms'    => ['calendar'],
+            'operator' => 'NOT IN',
+        ],
+    ],
+  
+    'orderby'        => 'meta_value',
+    'meta_key'       => '_piecal_start_date',
+    'order'          => 'DESC', // Most recent past dates first
+];
