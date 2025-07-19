@@ -1,0 +1,33 @@
+// Uncomment if multiple posts or pages are needed
+// $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+$current_datetime = current_time('Y-m-d\TH:i:s');
+$post_type = '{djop_event}';
+
+
+return [
+	'post_type' 			=> [$post_type],
+	'posts_per_page' 	=> 10,
+	// uncomment if multiple posts or pages are needed 
+  // 'paged'          => $paged,
+  'meta_query'     	=> [
+        [
+            'key'     => '_piecal_start_date',
+            'value'   => $current_datetime,
+            'compare' => '>',
+            'type'    => 'DATETIME',
+        ],
+    ],
+    // Include only a specific tax
+     'tax_query' => [ 
+        [
+            'taxonomy' => 'djop_event-type',
+            'field'    => 'slug',
+            'terms'    => ['featured'],
+            'operator' => 'IN',
+        ],
+    ],
+  
+    'orderby'        => 'meta_value',
+    'meta_key'       => '_piecal_start_date',
+    'order'          => 'ASC', // Next upcoming dates first
+];
